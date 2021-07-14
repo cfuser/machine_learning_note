@@ -1,7 +1,6 @@
 Machine Learning by Andrew Ng
 pdf by CarolusRex
 
-
 # Neural Networks: Cost Function
 
 <!-- code_chunk_output -->
@@ -70,6 +69,21 @@ $$
 $\frac{\partial z_j^{l + 2}}{\partial a_i^{l + 1}} = \Theta_{ji}^{(l + 1)}$
 If we have got $\frac{\partial J(\Theta)}{\partial a_j^{l + 2}}$, we can calculate $\frac{\partial J(\Theta)}{\partial a_j^{l + 1}}$, and next $\frac{\partial J(\Theta)}{\partial a_j^{l}}$, and so on.
 
+**Pseudo code:**
+Training set $\{(x^{(1)},\ y^{(1)}),\ ...,\ (x^{(m)},\ y^{(m)})\}$
+Set $\Delta_{ij}^{(l)} = 0$ (for all $i,\ j$)
+For $i = 1\ to\ m$
+&emsp;Set $a^{(1)} = x^{(i)}$
+&emsp;Perform forward propagation to compare $a^{(l)}$ for $l = 2, 3, ..., L$
+&emsp;Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$
+&emsp;Compute $\delta^{(L - 1)}, \delta^{(L - 2)}, ..., \delta^{(2)}$
+&emsp;$\Delta_{ij}^{(l)} = \Delta_{ij}^{(l)} + a_j^{(l)} \delta_i^{(l + 1)}$
+
+$D_{ij}^{(l)} = \frac{1}{m} \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)}$ if $j \neq 0$
+
+$D_{ij}^{(l)} = \frac{1}{m} \Delta_{ij}^{(l)}$ if $j = 0$
+
+$\frac{\partial}{\partial \Theta_{ij}^{(l)}} J(\Theta) = D_{ij}^{(l)}$
 
 <!--
 $\frac{\partial J(\Theta)}{\partial a_i^{l + 1}} = \sum \frac{\partial J(\Theta)}{\partial a_i^{l + 2}} * \frac{\partial a_i^{l + 2}}{\partial a_i^{l + 1}}$
