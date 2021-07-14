@@ -99,7 +99,11 @@ $cost(i) = y^{(i)}log(h_\Theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\Theta(x^{(i)}
 or $cost(i) \approx (h_\Theta(x^{(i)}) - y^{(i)})^2$
 
 $\delta_j^{(l)} =$ "error" of cost for $a_j^{(l)}$(unit $j$ in layer $l$). However, **in my opinion**, it's "error" of cost $z_j^{(l)}$ from a view of calculus. 
-$\delta_j^{(l)} = \frac{\partial J(\Theta)}{\partial a_i^l} * \frac{\partial a_j^l}{\partial z_j^l}= \frac{\partial J(\Theta)}{\partial a_i^l} * a_i^l * (1 - a_i^l)$, so we have $\frac{\partial J(\Theta)}{\partial a_i^l} = \sum_j \frac{\partial J(\Theta)}{\partial a_j^{l + 1}} * \frac{\partial a_j^{l + 1}}{\partial z_j^{l + 1}} * \frac{\partial z_j^{l + 1}}{\partial a_i^{l}} = \sum_j \Theta_{ji}^{(l)} * \delta_j^{(l + 1)} = {[\Theta_{ji}^{(l)}]}^T * \delta_j^{(l + 1)}$
+$\delta_j^{(l)} = \frac{\partial J(\Theta)}{\partial a_j^l} * \frac{\partial a_j^l}{\partial z_j^l}= \frac{\partial J(\Theta)}{\partial a_j^l} * a_j^l * (1 - a_j^l)$, so we have $\frac{\partial J(\Theta)}{\partial a_i^l} = \sum_j \frac{\partial J(\Theta)}{\partial a_j^{l + 1}} * \frac{\partial a_j^{l + 1}}{\partial z_j^{l + 1}} * \frac{\partial z_j^{l + 1}}{\partial a_i^{l}} = \sum_j \Theta_{ji}^{(l)} * \delta_j^{(l + 1)} = {[\Theta_{ji}^{(l)}]}^T * \delta_j^{(l + 1)}$
+
+$\delta_j^{L} = \frac{\partial J(\Theta)}{\partial a_j^L} * \frac{\partial a_j^L}{\partial z_j^L}$
+$\frac{\partial J(\Theta)}{\partial a_j^L} = \frac{1 - y_j}{1 - a_j^{L}} - \frac{y_j}{a_j^L}$
+So, $\delta_j^{L} = (\frac{1 - y_j}{1 - a_j^{L}} - \frac{y_j}{a_j^L})*(a_j^L (1 - a_j^L)) = a_j^L - y_j$
 
 For example, 
 $$
