@@ -36,8 +36,9 @@ With a large $\sigma^2$, the features fi vary more smoothly, causing higher bias
 
 With a small $\sigma^2$, the features fi vary less smoothly, causing lower bias and higher variance.
 ## SVM derivation
-[SVM-1——derivation of target and convex optimization](https://blog.csdn.net/CarolusRex/article/details/119143710)
-[SVM-2——nonlinear, kernel and SMO derivation](https://editor.csdn.net/md/?articleId=119150403)
+[SVM-1——derivation of target and convex optimization](https://blog.csdn.net/CarolusRex/article/details/119143710)(blog) or [SVM-1](https://github.com/cfuser/machine_learning_note/tree/master/Chapter_Seven/SVM-1.md)(github)
+[SVM-2——nonlinear, kernel and SMO derivation](https://editor.csdn.net/md/?articleId=119150403)(blog) or [SVM-2](https://github.com/cfuser/machine_learning_note/tree/master/Chapter_Seven/SVM-2.md)(github)
+
 Mercer's Theorem: 任何半正定矩阵都能作为核函数。
 
 ## Multi-class classification
